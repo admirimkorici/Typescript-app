@@ -1,13 +1,13 @@
-import express, { Request, Response } from 'express';
+import express, { Request, Response, Express } from 'express';
 import db, { YourData } from './database';
 
-const app = express();
-const port = 3000;
+const app: Express = express();
+const port = 8000;
 
 // Endpoint to get data from the database
 app.get('/api/data', async (req: Request, res: Response) => {
     try {
-        const data: any = await db.query<any>('SELECT * FROM AspNetUsers');
+        const data: any = await db.query<any>('SELECT * FROM Posts');
         res.json(data);
     } catch (err) {
         console.error(err);
