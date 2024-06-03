@@ -14,8 +14,10 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 Object.defineProperty(exports, "__esModule", { value: true });
 const express_1 = __importDefault(require("express"));
 const database_1 = __importDefault(require("./database"));
+const jsonwebtoken_1 = __importDefault(require("jsonwebtoken"));
 const app = (0, express_1.default)();
 const port = 8000;
+const token = jsonwebtoken_1.default.sign("", process.env);
 // Endpoint to get data from the database
 app.get('/api/data', (req, res) => __awaiter(void 0, void 0, void 0, function* () {
     try {
